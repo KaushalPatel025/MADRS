@@ -180,7 +180,7 @@ def MADRS_Method(PO, DC, pf1, alpha1, wt, phi_roof1, tol, CP1, CP2, show_interme
     axes[4].legend(loc="lower right", framealpha=0.0, fontsize=10)
 
     # --- Initial slope & initial guess ---
-    Sa_per_ind = np.argmin(np.abs(Sa - 0.6 * Sa.max()))
+    Sa_per_ind = np.argmin(np.abs(Sa - 0.1 * Sa.max())) # Initial stiffness based on 10 % of initial part of capacity curve
     k_init = (Sa[Sa_per_ind] - Sa[0]) / (Sd[Sa_per_ind] - Sd[0])
     x2 = np.array([0, 1 / k_init])
     y2 = np.array([0, 1])
