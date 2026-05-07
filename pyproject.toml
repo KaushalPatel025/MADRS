@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "madrs"
+version = "0.1.0"
+description = "Modified Acceleration-Displacement Response Spectrum (MADRS) seismic analysis method"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "matplotlib>=3.7",
+]
+keywords = ["seismic", "structural-engineering", "pushover", "ADRS", "MADRS"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.urls]
+Homepage = "https://github.com/YOUR_USERNAME/MADRS"
+Issues   = "https://github.com/YOUR_USERNAME/MADRS/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["madrs*"]
