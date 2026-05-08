@@ -46,7 +46,7 @@ phi_roof1 = 1.0     # 1st-mode shape at roof
 tol  = 1e-4   # Area-balance tolerance for bilinear fitting
 CP1  = 0.5    # Lower ay search bound (fraction of api)
 CP2  = 0.95   # Upper ay search bound (fraction of api)
-CP3 = 0.5     # Controls initial stiffness of the bi-linear curve
+CP3 = 0.5     # Controls initial stiffness of the bi-linear curve (ranges from 0 to 1, preferred 0.5)
 
 results = MADRS_Method(PO, DC, pf1, alpha1, wt, phi_roof1, tol, CP1, CP2, CP3)
 
@@ -81,6 +81,7 @@ MADRS_Method(PO, DC, pf1, alpha1, wt, phi_roof1, tol, CP1, CP2,
 | `tol` | `float` | Tolerance for bilinear area balance |
 | `CP1` | `float` | Lower multiplier for `ay` search |
 | `CP2` | `float` | Upper multiplier for `ay` search |
+| `CP3` | `float` | Initial stiffness control parameter |
 | `show_intermediate_plots` | `bool` | Show 6-panel diagnostic figure (default `True`) |
 
 **Returns** `(dpi, api, dy, ay, roof_disp, flag, Sd_spectra, Sa_Spectranew, Sd, Sa, x_bilinear, y_bilinear)`
