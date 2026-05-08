@@ -81,7 +81,7 @@ MADRS_Method(PO, DC, pf1, alpha1, wt, phi_roof1, tol, CP1, CP2,
 | `tol` | `float` | Tolerance for bilinear area balance |
 | `CP1` | `float` | Lower multiplier for `ay` search |
 | `CP2` | `float` | Upper multiplier for `ay` search |
-| `CP3` | `float` | Initial stiffness control parameter |
+| `CP3` | `float` | Initial stiffness control parameter (ranges from 0 to 1, preferred 0.5) |
 | `show_intermediate_plots` | `bool` | Show 6-panel diagnostic figure (default `True`) |
 
 **Returns** `(dpi, api, dy, ay, roof_disp, flag, Sd_spectra, Sa_Spectranew, Sd, Sa, x_bilinear, y_bilinear)`
