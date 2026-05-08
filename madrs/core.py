@@ -76,7 +76,7 @@ def closest_point_on_curve(P, x_curve, y_curve):
     return best_point, min_dist, percent_error
 
 
-def MADRS_Method(PO, DC, pf1, alpha1, wt, phi_roof1, tol, CP1, CP2, show_intermediate_plots=True):
+def MADRS_Method(PO, DC, pf1, alpha1, wt, phi_roof1, tol, CP1, CP2, CP3, show_intermediate_plots=True):
     """
     Modified Acceleration-Displacement Response Spectrum (MADRS) method.
 
@@ -180,7 +180,7 @@ def MADRS_Method(PO, DC, pf1, alpha1, wt, phi_roof1, tol, CP1, CP2, show_interme
     axes[4].legend(loc="lower right", framealpha=0.0, fontsize=10)
 
     # --- Initial slope & initial guess ---
-    Sa_per_ind = np.argmin(np.abs(Sa - 0.1 * Sa.max())) # Initial stiffness based on 10 % of initial part of capacity curve
+    Sa_per_ind = np.argmin(np.abs(Sa - CP3 * Sa.max())) # Initial stiffness based on CP3 of initial part of capacity curve
     k_init = (Sa[Sa_per_ind] - Sa[0]) / (Sd[Sa_per_ind] - Sd[0])
     x2 = np.array([0, 1 / k_init])
     y2 = np.array([0, 1])

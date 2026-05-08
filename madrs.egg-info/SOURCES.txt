@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+madrs/__init__.py
+madrs/core.py
+madrs.egg-info/PKG-INFO
+madrs.egg-info/SOURCES.txt
+madrs.egg-info/dependency_links.txt
+madrs.egg-info/requires.txt
+madrs.egg-info/top_level.txt
