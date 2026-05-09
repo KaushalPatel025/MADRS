@@ -13,7 +13,7 @@ pip install madrs
 
 ### Directly from GitHub
 ```bash
-pip install git+https://github.com/YOUR_USERNAME/MADRS.git
+pip install git+https://github.com/KaushalPatel025/MADRS.git
 ```
 
 ### Local development install (editable)
