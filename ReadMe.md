@@ -18,7 +18,7 @@ pip install git+https://github.com/KaushalPatel025/MADRS.git
 
 ### Local development install (editable)
 ```bash
-git clone https://github.com/YOUR_USERNAME/MADRS.git
+git clone https://github.com/KaushalPatel025/MADRS.git
 cd MADRS
 pip install -e .
 ```
