@@ -13,12 +13,12 @@ pip install madrs
 
 ### Directly from GitHub
 ```bash
-pip install git+https://github.com/YOUR_USERNAME/MADRS.git
+pip install git+https://github.com/KaushalPatel025/MADRS.git
 ```
 
 ### Local development install (editable)
 ```bash
-git clone https://github.com/YOUR_USERNAME/MADRS.git
+git clone https://github.com/KaushalPatel025/MADRS.git
 cd MADRS
 pip install -e .
 ```
@@ -81,7 +81,11 @@ MADRS_Method(PO, DC, pf1, alpha1, wt, phi_roof1, tol, CP1, CP2,
 | `tol` | `float` | Tolerance for bilinear area balance |
 | `CP1` | `float` | Lower multiplier for `ay` search |
 | `CP2` | `float` | Upper multiplier for `ay` search |
+<<<<<<< HEAD
 | `CP3` | `float` | Controls initial stiffness of the bi-linear curve (ranges from 0 to 1, preferred 0.5) |
+=======
+| `CP3` | `float` | Initial stiffness control parameter (ranges from 0 to 1, preferred 0.5) |
+>>>>>>> ebe33e0476a9b21c89f449ab56262426046fc3fd
 | `show_intermediate_plots` | `bool` | Show 6-panel diagnostic figure (default `True`) |
 
 **Returns** `(dpi, api, dy, ay, roof_disp, flag, Sd_spectra, Sa_Spectranew, Sd, Sa, x_bilinear, y_bilinear)`
