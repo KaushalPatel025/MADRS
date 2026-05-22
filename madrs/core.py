@@ -172,7 +172,7 @@ def MADRS_Method(PO, DC, pf1, alpha1, wt, phi_roof1, tol, CP1, CP2, CP3, show_in
     axes[3].legend(loc="lower right", framealpha=0.0, fontsize=10)
 
     # --- Demand spectrum in Sa-Sd space ---
-    Sd_spectra = EC_Spectrum[:, 1] * (EC_Spectrum[:, 0] ** 2) / (4 * np.pi ** 2)
+    Sd_spectra = EC_Spectrum[:, 1] *9.81 * (EC_Spectrum[:, 0] ** 2) / (4 * np.pi ** 2)
     axes[4].plot(Sd_spectra, EC_Spectrum[:, 1],
                  label="Demand Spectrum", color="orange")
     axes[4].set_xlabel("Spectral Displacement (m)", fontsize=12)
@@ -272,19 +272,24 @@ def MADRS_Method(PO, DC, pf1, alpha1, wt, phi_roof1, tol, CP1, CP2, CP3, show_in
         T_sec = T_zero / ((1 + alpha * (mue - 1)) / mue) ** 0.5
         M = (T_eff / T_sec) ** 2
 
-        Sa_Spectranew = (EC_Spectrum[:, 1] / B_beta_eff) * M
+        Sa_Spectranew = (EC_Spectrum[:,1]/B_beta_eff)
+        Sd_spectra_new = Sa_Spectranew * 9.81*(EC_Spectrum[:, 0] ** 2) / (4 * np.pi ** 2)
+
+        Sa_Spectranew = Sa_Spectranew*M
 
         P = [x[-1], y[-1]]
-        Q, error, percent_error = closest_point_on_curve(P, Sd_spectra, Sa_Spectranew)
+        Q, error, percent_error = closest_point_on_curve(P, Sd_spectra_new, Sa_Spectranew)
 
         if percent_error[0] <= TOL_INTER and percent_error[1] <= TOL_INTER:
             flag = 1
 
             fig2, ax2 = plt.subplots(figsize=(8, 6))
             ax2.plot(Sd_spectra, EC_Spectrum[:, 1],
-                     label="Demand Spectrum (EC2)", color="orange")
-            ax2.plot(Sd_spectra, Sa_Spectranew,
-                     label="Demand Spectrum (Scaled)", color="green")
+                     label="Demand Spectrum", color="orange")
+            ax2.plot(Sd_spectra_new, Sa_Spectranew/M,
+                     label="ADRS", color="red")
+            ax2.plot(Sd_spectra_new, Sa_Spectranew,
+                     label="MADRS", color="green")
             ax2.plot(Sd, Sa, label="Capacity Spectrum", color="blue")
             ax2.plot(x, y, label="Bilinear Curve", color="cyan")
             ax2.plot(x[-1], y[-1], "ro", label="api, dpi")
